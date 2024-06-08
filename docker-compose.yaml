@@ -1,0 +1,50 @@
+version: '3.8'
+services:
+
+  myapp:
+
+    build: /var/packages/baiduapp/target/app/baiduapp
+
+    image: baiduapp:1.0
+    container_name: baiduapp
+
+    volumes:
+
+      - /var/packages/baiduapp/target/app/appLogs:/tmp/nas-file/logs
+
+      - /var/packages/baiduapp/target/app/data:/data
+
+      - /var/packages/baiduapp/target/app/mount/volume1:/sdkpath/volume1
+
+      - /var/packages/baiduapp/target/app/mount/volume2:/sdkpath/volume2
+
+      - /var/packages/baiduapp/target/app/mount/volume3:/sdkpath/volume3
+
+      - /var/packages/baiduapp/target/app/mount/volume4:/sdkpath/volume4
+
+      - /var/packages/baiduapp/target/app/mount/volume5:/sdkpath/volume5
+
+      - /var/packages/baiduapp/target/app/mount/volume6:/sdkpath/volume6
+
+      - /var/packages/baiduapp/target/app/mount/volume7:/sdkpath/volume7
+
+      - /var/packages/baiduapp/target/app/mount/volume8:/sdkpath/volume8
+
+      - /var/packages/baiduapp/target/app/mount/volume9:/sdkpath/volume9
+
+      - /var/packages/baiduapp/target/app/mount/volume10:/sdkpath/volume10
+
+    networks:
+      - baiduapp
+
+    environment:
+      - API_HOST=127.0.0.1:8091
+
+    ports:
+      - "8092:8080/tcp"
+
+    restart: always
+
+networks:
+  baiduapp:
+    driver: bridge
